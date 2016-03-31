@@ -1,12 +1,17 @@
 <?php
+//We are returning JSON and so should be the content-type
 header('Content-type: application/json');
+//Including our database connection
 include "../includes/db-connection.php";
 
+//Defining vars to be used later
 $status = "";
 $data   = "";
+
+//url is http://site.com/api/a/b/c/d so basically it gets /api/a/b/c/d part first and then split it into array by '/'
 $url    = parse_url($_SERVER['REQUEST_URI'])['path'];
 $parts  = explode('/', $url);
-//url is http://site.com/api/a/b/c/d so basically it gets /api/a/b/c/d part first and then split it into array by '/'
+
 //Below we set the routes and include the result from backend to the index file.
 if ($parts[2] == "Chats") {
     //if the call is to /api/Chats/Get
