@@ -23,7 +23,7 @@ if ($parts[2] == "Chats") {
         }
         include 'chats/read.php';
     }
-    //if the call is to /api/Chats/Send
+    //if the call is to /api/Chats/Send/:username/:message
     if ($parts[3] == "Send") {
         $username = $parts[4];
         $message  = $parts[5];
